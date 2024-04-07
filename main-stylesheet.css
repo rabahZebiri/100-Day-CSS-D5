@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+*,::after,::before{
+    box-sizing: border-box;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    overflow: hidden;
+    margin: 0px;
+    color:#033b45;
+}
+:root{
+    --frame:#033b45;
+    --main-top-part:#dcd549;
+    --views:#ff4274 ;
+    --purchases:hsl(222, 100%, 74%);
+}
+body{
+    background-color: hsl(0, 0%, 95%);
+}
+body,.frame,.main-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.frame{
+    width:400px;
+    height:400px ;
+    background-color: var(--frame);
+    margin-top: calc(50vh - 200px);
+    margin-bottom: calc(50vh - 200px);
+    border-radius: 4px;
+
+}
+.main{
+    width: 280px;
+    height:220px ;
+    background-color:hsl(0, 0%, 100%) ;
+    border-radius: 3px;
+}
+.large{
+    font-weight: 600;
+    font-size: 14px;
+}
+.small{
+    font-weight: 400;
+    font-size: 11px;
+}
+.main-top{
+    color: #fff;
+    height:60px;
+    background-color: var(--main-top-part);
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: start;
+    display: flex;
+
+}
+.main-top-left{
+    height: 100%;
+    width: 70%;
+    padding: 10px;
+}
+.main-top-right{
+    height: 100%;
+    width: 70%;
+    padding:10px;
+    direction: rtl;
+}
+.main-bottom{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.weekdays{
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-around;
+    color: hsl(0, 0%, 55%);
+}
+.horizontal-ligne{
+    width: 95%;
+    height: 0.9px;
+    background-color: hsla(0, 0%, 79%, 0.795);
+    margin: auto;
+}
+.horizontal-ligne:not(:last-child){
+    margin-bottom: 30px;
+}
+.main-bottom-graph-info{
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    font-size: 10px;
+    padding-inline: 20px;
+    align-items: center;
+}
+.main-bottom-graph-info .color{
+    width: 10px;
+    height: 3px;
+    background-color: #ff4274;
+}
+.views>.color{
+    background-color: var(--views);
+    margin-inline:5px;
+    border-radius:30% ;
+
+}
+.purches>.color{
+    background-color: var(--purchases);
+    margin-inline: 5px;
+    border-radius:30% ;
+
+}
+.views,.purches{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 10px;
+}
+polyline{
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+.data{
+    z-index: 99;
+}
