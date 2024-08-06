@@ -5,7 +5,6 @@
     font-family: "Open Sans", Helvetica, sans-serif;
     text-decoration: none;
     list-style: none;
-    overflow: hidden;
     margin: 0px;
     color:#033b45;
 }
@@ -13,7 +12,7 @@
     --frame:#033b45;
     --main-top-part:#dcd549;
     --views:#ff4274 ;
-    --purchases:hsl(222, 100%, 74%);
+    --purchases:rgb(122, 162, 255);
 }
 body{
     background-color: hsl(0, 0%, 95%);
@@ -70,7 +69,7 @@ body,.frame,.main-top{
 }
 .main-bottom{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 .weekdays{
     width: 100%;
@@ -80,15 +79,15 @@ body,.frame,.main-top{
     display: flex;
     justify-content: space-around;
     color: hsl(0, 0%, 55%);
+    position: relative;
+    bottom: -3px;
 }
 .horizontal-ligne{
     width: 95%;
     height: 0.9px;
     background-color: hsla(0, 0%, 79%, 0.795);
-    margin: auto;
-}
-.horizontal-ligne:not(:last-child){
-    margin-bottom: 30px;
+    margin-inline: auto ;
+    margin-bottom: 29px;
 }
 .main-bottom-graph-info{
     width: 100%;
@@ -103,6 +102,9 @@ body,.frame,.main-top{
     width: 10px;
     height: 3px;
     background-color: #ff4274;
+}
+.chart{
+    height: 85px;
 }
 .views>.color{
     background-color: var(--views);
@@ -122,11 +124,245 @@ body,.frame,.main-top{
     align-items: baseline;
     margin-left: 10px;
 }
-polyline{
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
+.point{
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: red;
+    position: relative;
+    top: -80px;
+    left: 0px;
+    cursor: pointer;
 }
-.data{
-    z-index: 99;
+.line{
+    height: 3px;
+    position: relative;
+}
+.purches-graph .point{
+    background-color: var(--purchases);
+}
+.purches-graph .line{
+    background-color: var(--purchases);
+}
+
+.purches-graph .point-a{
+    left:20px;
+    top: -40px;
+}
+.purches-graph .line-a{
+    width: 76.16px;
+    left:21px;
+    top: -55px;
+    transform: rotate(-16deg);
+}
+.purches-graph .point-b{
+    left:90px;
+    top: -70px;
+}
+.purches-graph .line-b{
+    width: 84.16px;
+    left:91px;
+    top: -60px;
+    transform: rotate(21deg);
+}
+.purches-graph .point-c{
+    left:170px;
+    top: -50px;
+}
+.purches-graph .line-c{
+    width: 51.16px;
+    left:170px;
+    top: -59.5px;
+    transform: rotate(-12deg);
+}
+.purches-graph .point-d{
+    left:220px;
+    top: -70px;
+}
+.purches-graph .line-d{
+    width: 48.16px;
+    left:215px;
+    top: -95px;
+    transform: rotate(-52deg);
+}
+.purches-graph .point-e{
+    left:250px;
+    top: -118px;
+}
+.views-graph .point{
+    background-color: var(--views);
+}
+.Views-graph .line{
+    width:50px;
+    height: 3px;
+    background-color:var(--views);
+    left: 20px;
+    bottom: 90px;
+}
+
+.Views-graph .point-a{
+    left:20px;
+    top: -110px;
+}
+.Views-graph .line-a{
+    width:75px;
+    top:-102.5px;
+    left:22px;
+    transform: rotate(20deg);
+}
+.Views-graph .point-b{
+    left:90px;
+    top: -95px;
+}
+.Views-graph .line-b{
+    width:77px;
+    top:-107px;
+    left:94px;
+    transform: rotate(-11deg);
+}
+.Views-graph .point-c{
+    left:170px;
+    top: -120px;
+}
+.Views-graph .line-c{
+    width:52px;
+    top:-132px;
+    left:171px;
+    transform: rotate(-17deg);
+}
+.Views-graph .point-d{
+    left:220px;
+    top: -145px;
+}
+.Views-graph .line-d{
+    width:46px;
+    top:-131px;
+    left:217px;
+    transform: rotate(50deg);
+}
+.Views-graph .point-e{
+    left:250px;
+    top: -120px;
+} 
+
+.value-p,.value-v{ /* styling tooltip*/
+    position: relative;
+    width: fit-content;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: var(--purchases);
+    padding: 0px 7px;
+    border-radius: 12px;
+    display: none;
+    z-index: 1;
+}
+.value-p::before{
+    content: " ";
+    position: relative;
+    left: 7.5px;
+    margin-inline: -5px;
+    border: 5px solid;
+    border-color:  var(--purchases) transparent transparent ;
+}
+.purches-a{
+    bottom: 22px;
+    left: -10px;
+}
+.purches-a::before{
+    bottom: -20px;
+    left: 7px;
+}
+.point:hover .value-p ,.point:hover .value-v {
+    display: block;
+
+}
+
+.purches-b{
+    top: -21px;
+    left: -11px;
+}
+.purches-b::before{
+    top: 20px;
+
+}
+.purches-c{
+    top: -20px;
+    left: -8px;
+}
+.purches-c::before{
+    bottom: -20px;
+    left: 5px;
+}
+.purches-d{
+    top: -20px;
+    left: -19px;
+}
+.purches-d::before{
+    bottom: -19px;
+    left: 13px;
+}
+.purches-e{
+    top: -22px;
+    left: -11px;
+}
+.purches-e::before{
+    bottom: -21px;
+    border-color: var(--purchases) transparent transparent;
+}
+/*styling views tooltips */
+.value-v{
+    background-color: var(--views);
+}
+.value-v::before{
+    content: "";
+    border:5px solid;
+    margin-inline: -5px;
+    border-color: black ;
+    position: relative;
+}
+.views-a{
+    bottom:20px;
+    right: 10px;
+}
+.views-a::before{
+    border-color: var(--views) transparent transparent;
+    top: 20px;
+    left: 6px;
+}
+.views-b{
+    top:-22px;
+    right: 9px;
+}
+.views-b::before{
+    border-color: var(--views) transparent transparent;
+    top: 20px;
+    left: 6px;
+}
+.views-c{
+    bottom: 22px;
+    right: 10px;
+}
+.views-c::before{
+    border-color: var(--views) transparent transparent;
+    top: 20px;
+    left: 6px;
+}
+.views-d{
+    bottom: 22px;
+    right: 10px;
+}
+.views-d::before{
+    border-color: var(--views) transparent transparent;
+    top: 20px;
+    left: 6px;
+}
+.views-e{
+    top: -20px;
+    right: 8px;
+}
+.views-e::before{
+    border-color:  var(--views) transparent transparent;
+    top: 20px;
+    left: 6px;
 }
